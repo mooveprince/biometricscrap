@@ -7,8 +7,8 @@ module.exports.getHourlyStatus = (event, context, callback) => {
     let apiResult = canadaBiometric.canadaBiometricStatus ();    
     apiResult.then (data => {
       console.log("Data from site " + data); 
-      if (!data || data.trim() === "" || data.trim().toUpperCase().search("CANCELLED") == -1 ) {
-        emailSender.sendEmail( "Book Appointment now" );
+      if (!data || data.trim() === "" || data.trim().toUpperCase().search("DISRUPTIONS") == -1 ) {
+        emailSender.sendEmail( "Book Appointment now - Not seeing any biometric disruptions" );
       } else {
           console.log ("still cancelled");
       }

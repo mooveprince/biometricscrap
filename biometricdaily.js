@@ -7,10 +7,10 @@ module.exports.getDailyStatus = (event, context, callback) => {
     let apiResult = canadaBiometric.canadaBiometricStatus ();    
     apiResult.then (data => {
       console.log("Data from site " + data); 
-      if (data && (data.toUpperCase().search("CANCELLED") != -1)  ) {
-        emailSender.sendEmail( "Still Cancelled" );
+      if (data && (data.toUpperCase().search("DISRUPTIONS") != -1)  ) {
+        emailSender.sendEmail( "Still Cancelled - Biometrics service is still disrupted" );
       } else {
-        emailSender.sendEmail( "Not Seeing Cancelled in the page. Time to book the appointment" );
+        emailSender.sendEmail( "Not Seeing Disruption in the page. Time to book the appointment" );
       }
 
     });

@@ -13,7 +13,7 @@ var canadaBiometricStatus = function () {
 
     return rp(options)
         .then(function ($) {
-            return $('.alert-danger').children().first().text().trim();
+            return $('.alert-warning').children().first().text().trim();
         })
             .catch(function (err) {
                 emailSender.sendEmail( "Something wrong with the automation job" );
